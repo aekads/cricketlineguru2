@@ -21,24 +21,28 @@
         }
 
         body {
+            height: 100vh;
+            width: 100vw;
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
-            padding: 20px;
+            padding: 0;
+            margin: 0;
             background-color: #f0f0f0;
         }
 
         .scoreboard {
             display: flex;
             flex-direction: column;
-            width: 100%;
-            max-width: 1100px;
+            width: 100vw;
+            height: 100vh;
             background: linear-gradient(116.21deg, #052652 -3.25%, #2D9CDB 107.37%);
-            border-radius: 15px;
+            border-radius: 0;
             padding: 20px;
             color: white;
         }
+
+
 
         .left-panel {
             width: 100%;
@@ -48,26 +52,27 @@
             border-radius: 15px;
             text-align: center;
             margin-bottom: 20px;
+            line-height: 43px;
         }
 
         .left-panel h2 {
             font-family: Poppins;
             font-weight: 700;
-            font-size: 2.5rem;
-            line-height: 1.2;
+            font-size: 45px;
+            line-height: 75px;
         }
 
         .left-panel h3 {
             font-family: Poppins;
             font-weight: 400;
-            font-size: 1.5rem;
+            font-size: 32px;
             line-height: 1.2;
         }
 
         .clock {
             font-family: 'Digital-7', sans-serif;
             font-weight: 400;
-            font-size: 2rem;
+            font-size: 34px;
             line-height: 1.2;
             margin: 10px 0;
             letter-spacing: 4px;
@@ -75,14 +80,15 @@
 
         @font-face {
             font-family: 'Digital-7';
-            src: url('../fonts/digital-7.ttf') format('truetype');
-
+            src: url('/fonts/digital-7.ttf') format('truetype');
             font-weight: normal;
             font-style: normal;
         }
 
+
         .datee {
-            letter-spacing: 2px;
+            letter-spacing: 4px;
+            font-size: 16px;
         }
 
         .score-box h3 {
@@ -108,7 +114,7 @@
         .adver {
             font-family: Poppins;
             font-weight: 600;
-            font-size: 1.5rem;
+            font-size: 28px;
             line-height: 1.5;
             margin: 10px 0;
         }
@@ -121,32 +127,35 @@
         .match-title {
             font-family: Montserrat;
             font-weight: 500;
-            font-size: 23px;
+            font-size: 24px;
             letter-spacing: 0px;
             text-align: center;
             display: flex;
             margin-bottom: 15px;
+            line-height: 51px;
         }
 
         .score-box {
             display: flex;
             flex-direction: column;
             align-items: center;
-            background: #3e83b2;
+            background-image: url(https://res.cloudinary.com/dykvdhxke/image/upload/v1742625465/Rectangle_3_eunref.png);
+            background-size: cover;
             padding: 20px;
             border-radius: 10px;
             text-align: center;
             margin-top: 10px;
+            height: 50%;
         }
 
         .team-logo {
-            width: 65%;
+            width: 60%;
         }
 
         .score {
             font-family: Montserrat;
             font-weight: 700;
-            font-size: 4rem;
+            font-size: 9rem;
             line-height: 1;
             margin: 10px 0;
         }
@@ -155,7 +164,7 @@
             font-family: Montserrat;
             font-weight: 500;
             font-size: 2rem;
-            line-height: 1.2;
+            line-height: 85px;
         }
 
         .run-rate {
@@ -165,13 +174,17 @@
             line-height: 1.2;
         }
 
+        div {
+            width: 100%;
+        }
+
         .info-row {
             display: flex;
             flex-direction: column;
             background: rgba(141, 2, 2, 0.1);
             padding: 20px;
             margin-top: 14px;
-            border-radius: 5px;
+            border-radius: 16px;
             gap: 5%;
         }
 
@@ -182,6 +195,36 @@
             margin-bottom: 10px;
         }
 
+        .bowler-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 15px;
+        }
+
+        .bowler-table th,
+        .bowler-table td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 18px;
+        }
+
+        .bowler-table th {
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .bowler-table td {
+            font-weight: 500;
+        }
+
+        #batsman1,
+        #batsman2,
+        #batsman1Stats,
+        #batsman2Stats {
+            font-size: 18px;
+        }
+
         .batsman-info p,
         .bowler-info p {
             display: flex;
@@ -189,8 +232,8 @@
         }
 
         .headline {
-            margin-top: 10px;
-            font-size: 1.2rem;
+            margin-top: 40px;
+            font-size: 32px;
             text-align: center;
             color: rgba(255, 255, 255, 1);
         }
@@ -200,12 +243,30 @@
             color: white;
             padding: 5px 10px;
             border-radius: 5px;
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             margin-left: 10px;
+            width: 12%;
+            height: 60px;
         }
+
+        @keyframes blink {
+            0% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
 
         .liveDot {
             margin-bottom: 2px;
+            animation: blink 1s infinite;
         }
 
         .bowler-balls {
@@ -225,6 +286,153 @@
             color: black;
             font-weight: bold;
             border: 1px solid #ccc;
+        }
+
+        @media (max-width: 1500px) {
+            .live-tag {
+                background: green;
+                color: white;
+                padding: 5px 10px;
+                border-radius: 5px;
+                font-size: 1.8rem;
+                margin-left: 10px;
+                width: 15%;
+                height: 60px;
+            }
+        }
+
+        @media (min-width: 1500px) {
+            .qr-code img {
+                width: 90%;
+                height: auto;
+            }
+        }
+
+        @media (max-width: 1400px) {
+            .live-tag {
+                background: green;
+                color: white;
+                padding: 5px 10px;
+                border-radius: 5px;
+                font-size: 1.8rem;
+                margin-left: 10px;
+                width: 17%;
+                height: 60px;
+            }
+        }
+
+        @media (max-width: 1320px) {
+            .live-tag {
+                background: green;
+                color: white;
+                padding: 5px 10px;
+                border-radius: 5px;
+                font-size: 1.8rem;
+                margin-left: 10px;
+                width: 19%;
+                height: 60px;
+            }
+        }
+
+        @media (max-width: 1241px) {
+            .live-tag {
+                background: green;
+                color: white;
+                padding: 5px 10px;
+                border-radius: 5px;
+                font-size: 1.8rem;
+                margin-left: 10px;
+                width: 21%;
+                height: 60px;
+            }
+
+            .clock {
+                font-family: 'Digital-7', sans-serif;
+                font-weight: 400;
+                font-size: 32px;
+                line-height: 1.2;
+                margin: 10px 0;
+                letter-spacing: 4px;
+            }
+        }
+
+        @media (max-width: 1187px) {
+            .live-tag {
+                background: green;
+                color: white;
+                padding: 5px 10px;
+                border-radius: 5px;
+                font-size: 1.8rem;
+                margin-left: 10px;
+                width: 23%;
+                height: 60px;
+            }
+        }
+
+        @media (max-width: 1140px) {
+            .live-tag {
+                background: green;
+                color: white;
+                padding: 5px 10px;
+                border-radius: 5px;
+                font-size: 1.8rem;
+                margin-left: 10px;
+                width: 25%;
+                height: 60px;
+            }
+        }
+
+        @media (max-width: 1100px) {
+            .live-tag {
+                background: green;
+                color: white;
+                padding: 5px 10px;
+                border-radius: 5px;
+                font-size: 1.8rem;
+                margin-left: 10px;
+                width: 27%;
+                height: 60px;
+            }
+
+            .adver {
+                font-family: Poppins;
+                font-weight: 600;
+                font-size: 24px;
+                line-height: 1.5;
+                margin: 10px 0;
+            }
+
+            .clock {
+                font-family: 'Digital-7', sans-serif;
+                font-weight: 400;
+                font-size: 30px;
+                line-height: 1.2;
+                margin: 10px 0;
+                letter-spacing: 4px;
+            }
+        }
+
+        @media (max-width: 1067px) {
+            .score {
+                font-size: 8rem;
+            }
+        }
+
+        @media (max-width: 1062px) {
+            .live-tag {
+                background: green;
+                color: white;
+                padding: 5px 10px;
+                border-radius: 5px;
+                font-size: 1.8rem;
+                margin-left: 10px;
+                width: 31%;
+                height: 60px;
+            }
+
+            .score-box {
+                height: 45%;
+            }
         }
 
         @media (min-width: 768px) {
@@ -256,9 +464,6 @@
                 width: 48%;
             }
 
-            .score {
-                font-size: 9rem;
-            }
 
             .overs {
                 font-size: 3rem;
@@ -269,7 +474,16 @@
             }
 
             .headline {
-                font-size: 1.5rem;
+                font-size: 32px;
+            }
+        }
+
+        @media (max-width: 767px) {
+
+            .bowler-table th,
+            .bowler-table td {
+                padding: 6px 4px;
+                font-size: 0.9rem;
             }
         }
     </style>
@@ -279,7 +493,7 @@
 
     <div class="scoreboard">
         <div class="left-panel">
-            <div style="line-height: 44px;">
+            <div>
                 <h2>Tuesday</h2>
                 <h3>Evening</h3>
             </div>
@@ -306,37 +520,50 @@
 
         <div class="right-panel">
             <div class="match-title">
-                <h2 id="matchTitle">-</h2><span class="live-tag"><svg class="liveDot" width="12" height="12"
+                <h2 id="matchTitle">-</h2><span class="live-tag"><svg class="liveDot" width="15" height="15"
                         viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <circle cx="7.72684" cy="7.4849" r="7.24247" fill="white" />
                     </svg>
                     LIVE</span>
             </div>
             <div class="score-box">
-                <div>
+                <div style="width: 50%;">
                     <!-- <img class="rcb" src="" alt="RCB Logo" width="50"> -->
                     <!-- <img class="team-logo" src="" alt="Team Logo" width="50" id="teamLogo"> -->
                     <img class="team-logo" src="" alt="Team 1 Logo" width="50" id="teamLogo1">
                 </div>
-                <div class="score-box">
-                    <!-- <img id="teamLogo" src="image.png" alt="Team Logo" width="50"> -->
+
+                <!-- <img id="teamLogo" src="image.png" alt="Team Logo" width="50"> -->
+                <div>
+                    <div class="score" id="teamScore">-</div>
+                    <!-- <h3>Currently Batting: <span id="battingTeam">-</span></h3> -->
+                    <!-- <h3>Currently Batting: <span id="battingTeam">-</span></h3> -->
+
                     <div>
-                        <div class="score" id="teamScore">-</div>
-                        <!-- <h3>Currently Batting: <span id="battingTeam">-</span></h3> -->
-                        <h3>Currently Batting: <span id="battingTeam">-</span></h3>
-                        <!-- <div class="team">2nd Innings Score: <span id="teamScore2">-</span></div> -->
-                        <div>
-                            <div class="overs" id="overs">OVER: -</div>
-                            <!-- <div class="run-rate" id="runRate">RUN RATE: -</div>                -->
-                        </div>
+                        <div class="overs" id="overs">OVER: -</div>
                     </div>
+                    <h3 id="targetScore">Target: -</h3>
                 </div>
+
 
             </div>
 
             <div class="info-row">
                 <div class="bowler-info">
-                    <p><strong id="bowlerName">-</strong> <span id="bowlerStats">-</span></p>
+                    <table class="bowler-table">
+                        <thead>
+                            <tr>
+                                <th>Bowler</th>
+                                <th>Overs</th>
+                                <th>Runs</th>
+                                <th>Wkts</th>
+                                <th>Econ</th>
+                            </tr>
+                        </thead>
+                        <tbody id="bowlerStats">
+                            <!-- This will be populated by JavaScript -->
+                        </tbody>
+                    </table>
                     <p class="bowler-balls" id="bowlerBalls"></p>
                 </div>
                 <div class="batsman-info">
@@ -352,6 +579,7 @@
                 -</h1>
         </div>
     </div>
+
 
     <script>
         document.addEventListener("DOMContentLoaded", () => {
@@ -373,25 +601,24 @@
 
 
             const teamLogos = {
-                'Lucknow Super Giants': 'https://res.cloudinary.com/dykvdhxke/image/upload/v1742618962/Original_Lucknow_Super_Giants_PNG-SVG_File_Download_Free_Download_kqyk0y.png',
-                'Delhi Capitals': 'https://res.cloudinary.com/dykvdhxke/image/upload/v1742618962/Original_Delhi_Capitals_Logo_PNG-SVG_File_Download_Free_Download_zwrnxu.png',
-                'Punjab Kings': 'https://res.cloudinary.com/dykvdhxke/image/upload/v1742618963/Original_Punjab_Kings_PNG-SVG_File_Download_Free_Download_zld244.png',
-                'Gujarat Titans': 'https://res.cloudinary.com/dykvdhxke/image/upload/v1742618963/Original_Gujarat_Titans_Logo_PNG-SVG_File_Download_Free_Download_q8gsm8.png',
-                'Alipurduar Thunders': 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRloofqOzXRqDZgAwCIzxpaqKxV6l54oxl-LQ&s',
-                'Jhargram Firebolts': 'https://marketplace.canva.com/EAFzZqHNCIE/1/0/1600w/canva-red-and-black-illustrative-cricket-club-logo-jqO8d_9OWwA.jpg', // Replace with actual logo URL
-                'Rajasthan Royals': 'https://res.cloudinary.com/dykvdhxke/image/upload/v1742618962/Original_Rajasthan_Royals_Logo_PNG-SVG_File_Download_Free_Download_tnyvbq.png',
-                'Kolkata Knight Riders': 'https://res.cloudinary.com/dykvdhxke/image/upload/v1742618962/Original_Kolkata_Knight_Riders_PNG-SVG_File_Download_Free_Download_btlibn.png',
-                'Sunrisers Hyderabad': 'https://res.cloudinary.com/dykvdhxke/image/upload/v1742618963/Original_Sunrisers_Hyderabad_PNG-SVG_File_Download_Free_Download_o79rcq.png',
-                'Chennai Super Kings': 'https://res.cloudinary.com/dykvdhxke/image/upload/v1742618963/Original_Chennai_Super_Fun_Logo_PNG_-_SVG_File_Download_Free_Download_rnuqli.png',
-                'Royal Challengers Bengaluru': 'https://res.cloudinary.com/dykvdhxke/image/upload/v1742618962/Original_Royal_Challengers_Bangalore_PNG-SVG_File_Download_Free_Download_jb3smp.png',
-                'Mumbai Indians': 'https://res.cloudinary.com/dykvdhxke/image/upload/v1742618963/Original_Mumbai_Indians_PNG-SVG_File_Download_Free_Download_vohpwv.png'
-
+                'LSG': 'https://res.cloudinary.com/dykvdhxke/image/upload/v1742618962/Original_Lucknow_Super_Giants_PNG-SVG_File_Download_Free_Download_kqyk0y.png',
+                'DC': 'https://res.cloudinary.com/dykvdhxke/image/upload/v1742618962/Original_Delhi_Capitals_Logo_PNG-SVG_File_Download_Free_Download_zwrnxu.png',
+                'PK': 'https://res.cloudinary.com/dykvdhxke/image/upload/v1742618963/Original_Punjab_Kings_PNG-SVG_File_Download_Free_Download_zld244.png',
+                'GT': 'https://res.cloudinary.com/dykvdhxke/image/upload/v1742618963/Original_Gujarat_Titans_Logo_PNG-SVG_File_Download_Free_Download_q8gsm8.png',
+                'PMD': 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRloofqOzXRqDZgAwCIzxpaqKxV6l54oxl-LQ&s',
+                'DRJU': 'https://marketplace.canva.com/EAFzZqHNCIE/1/0/1600w/canva-red-and-black-illustrative-cricket-club-logo-jqO8d_9OWwA.jpg',
+                'RR': 'https://res.cloudinary.com/dykvdhxke/image/upload/v1742618962/Original_Rajasthan_Royals_Logo_PNG-SVG_File_Download_Free_Download_tnyvbq.png',
+                'KKR': 'https://res.cloudinary.com/dykvdhxke/image/upload/v1742618962/Original_Kolkata_Knight_Riders_PNG-SVG_File_Download_Free_Download_btlibn.png',
+                'SH': 'https://res.cloudinary.com/dykvdhxke/image/upload/v1742618963/Original_Sunrisers_Hyderabad_PNG-SVG_File_Download_Free_Download_o79rcq.png',
+                'CSK': 'https://res.cloudinary.com/dykvdhxke/image/upload/v1742618963/Original_Chennai_Super_Fun_Logo_PNG_-_SVG_File_Download_Free_Download_rnuqli.png',
+                'RCB': 'https://res.cloudinary.com/dykvdhxke/image/upload/v1742618962/Original_Royal_Challengers_Bangalore_PNG-SVG_File_Download_Free_Download_jb3smp.png',
+                'MI': 'https://res.cloudinary.com/dykvdhxke/image/upload/v1742618963/Original_Mumbai_Indians_PNG-SVG_File_Download_Free_Download_vohpwv.png'
             };
 
 
             async function fetchData() {
                 try {
-                    const response = await fetch('/api/live-match');
+                    const response = await fetch('http://localhost:3000/api/live-match');
                     if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
 
                     const data = await response.json();
@@ -403,17 +630,16 @@
                     }
 
                     // Update Match Title
-                    // Update Match Title
                     const matchTitle = data.matchTitle || 'Match Title';
 
-                    // Extract teams from the match title
+                    // Ensure the match title is properly formatted
                     const teams = matchTitle.split(" vs ") || ["-", "-"];
                     const team1 = teams[0].trim();
-                    const team2Words = teams[1]?.split(" ") || ["-"];
-                    const team2Short = team2Words[0]; // Taking only the first word of the second team's name
+                    const team2 = teams[1] ? teams[1].trim() : "-"; // Keep the full second team name
 
-                    // Construct the new title
-                    const formattedTitle = `${team1} vs ${team2Short}..`;
+                    // Construct the new title without truncation
+                    const formattedTitle = `${team1} vs ${team2}`;
+
 
                     // Update UI
                     document.getElementById('matchTitle').innerText = formattedTitle;
@@ -429,9 +655,12 @@
                     // document.getElementById('teamLogo2').src = teamLogos[team2] || '';
 
                     // Identify current batting team
-                    const battingTeam = data.currentScore?.[0] || { score: '-', team: '-' };
-                    document.getElementById('battingTeam').innerText = battingTeam.team || '-';
+                    //   const battingTeam = data.currentScore?.[0] || { score: '-', team: '-' };
+                    //     document.getElementById('battingTeam').innerText = battingTeam.team || '-';
 
+
+                    const battingTeamm = data.currentScore?.[1] || { score: '-', team: '-' };
+                    document.getElementById('targetScore').innerText = `Target ${battingTeamm.score} ` || '-';
 
 
 
@@ -448,19 +677,37 @@
                     // Update Team Score and Overs
                     // Update Team Score and Overs
                     // const team = data.currentScore?.[0] || { score: '-', team: '-' };
-                    const team = data.currentScore?.[0] || { score: '-', team: '-' };
+                    // const team = data.currentScore?.[1] || { score: '-', team: '-' };
                     // Determine the currently batting team
-                    const currentBattingIndex = data.currentScore === 1 ? 1 : 0;
-                    const currentBattingTeam = data.innings?.[currentBattingIndex] || { score: '-', team: '-' };
+                    const currentBattingIndex = data.currentScore === 1 ? 1 : 0; // 1 means second innings, otherwise first
+                    const currentBattingTeam = data.currentScore?.[currentBattingIndex] || { score: '-', team: '-' };
+
+
+                    // Get the batting team name
+                    const battingTeamName = currentBattingTeam.team || '-';
+
+                    // Dynamically update the batting team logo
+                    const teamLogoElement = document.getElementById('teamLogo1');
+                    if (teamLogoElement) {
+                        teamLogoElement.src = teamLogos[battingTeamName] || '';
+                        teamLogoElement.alt = `${battingTeamName} Logo`;
+                    }
+                    // // Determine the currently batting team index
+                    // const currentBattingIndex = data.currentScore === 1 ? 1 : 0; // 1 means second innings, otherwise first
+                    // const currentBattingTeam = data.currentScore?.[currentBattingIndex]?.team || '-';
+                    // const currentBattingTeam = data.innings?.[currentBattingIndex] || { score: '-', team: '-' };
 
 
 
                     // Extract score and overs separately
-                    const scoreMatch = team.score.match(/^([\d-]+)/); // Extracts "42-7"
-                    const oversMatch = team.score.match(/\(([\d.]+)\)/); // Extracts "13.0"
+                    const scoreMatch = currentBattingTeam.score.match(/^([\d-]+)/); // Extracts "128-8"
+                    const oversMatch = currentBattingTeam.score.match(/\(([\d.]+)\)/); // Extracts "20.
+                    // Update the batting team's score in the UI
                     // Update the batting team's score in the UI
                     document.getElementById('teamScore').innerText = scoreMatch ? scoreMatch[0] : '-';
                     document.getElementById('overs').innerText = `OVER: ${oversMatch ? oversMatch[1] : '-'}`;
+
+
 
 
                     // Extract overs
