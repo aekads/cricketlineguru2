@@ -72,7 +72,7 @@
         .clock {
             font-family: 'Digital-7', sans-serif;
             font-weight: 400;
-            font-size: 34px;
+            font-size: 38px;
             line-height: 1.2;
             margin: 10px 0;
             letter-spacing: 4px;
@@ -606,7 +606,7 @@
                 'PK': 'https://res.cloudinary.com/dykvdhxke/image/upload/v1742618963/Original_Punjab_Kings_PNG-SVG_File_Download_Free_Download_zld244.png',
                 'GT': 'https://res.cloudinary.com/dykvdhxke/image/upload/v1742618963/Original_Gujarat_Titans_Logo_PNG-SVG_File_Download_Free_Download_q8gsm8.png',
                 'PMD': 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRloofqOzXRqDZgAwCIzxpaqKxV6l54oxl-LQ&s',
-                'DRJU': 'https://marketplace.canva.com/EAFzZqHNCIE/1/0/1600w/canva-red-and-black-illustrative-cricket-club-logo-jqO8d_9OWwA.jpg',
+                'DRJU': 'https://marketplace.canva.com/EAFzZqHNCIE/1/0/1600w/canva-red-and-black-illustrative-cricket-club-logo-jqO8d_9OWwA.jpg', 
                 'RR': 'https://res.cloudinary.com/dykvdhxke/image/upload/v1742618962/Original_Rajasthan_Royals_Logo_PNG-SVG_File_Download_Free_Download_tnyvbq.png',
                 'KKR': 'https://res.cloudinary.com/dykvdhxke/image/upload/v1742618962/Original_Kolkata_Knight_Riders_PNG-SVG_File_Download_Free_Download_btlibn.png',
                 'SH': 'https://res.cloudinary.com/dykvdhxke/image/upload/v1742618963/Original_Sunrisers_Hyderabad_PNG-SVG_File_Download_Free_Download_o79rcq.png',
@@ -715,9 +715,21 @@
                     // document.getElementById('overs').innerText = `OVER: ${oversMatch ? oversMatch[1] : '-'}`;
 
                     // Update Bowler Info
-                    const bowler = data.bowlers?.[0] || { name: '-', overs: '-', runs: '-', wickets: '-', economy: '-' };
-                    document.getElementById('bowlerName').innerText = bowler.name;
-                    document.getElementById('bowlerStats').innerText = `${bowler.overs} Overs | ${bowler.runs} Runs | ${bowler.wickets} Wkts | Econ: ${bowler.economy}`;
+                    const bowlers = data.bowlers || [];
+                    const bowlerStatsElement = document.getElementById('bowlerStats');
+                    bowlerStatsElement.innerHTML = '';
+
+                    bowlers.forEach(bowler => {
+                        const row = document.createElement('tr');
+                        row.innerHTML = `
+                            <td>${bowler.name || '-'}</td>
+                            <td>${bowler.overs || '-'}</td>
+                            <td>${bowler.runs || '-'}</td>
+                            <td>${bowler.wickets || '-'}</td>
+                            <td>${bowler.economy || '-'}</td>
+                        `;
+                        bowlerStatsElement.appendChild(row);
+                    });
 
                     // Update Last Over (Only Last 6 Balls)
                     const bowlerBallsElement = document.getElementById('bowlerBalls');
