@@ -626,8 +626,6 @@
             updateClock();
 
 
-
-
             const teamLogos = {
                 'LSG': 'https://res.cloudinary.com/dykvdhxke/image/upload/v1742618962/Original_Lucknow_Super_Giants_PNG-SVG_File_Download_Free_Download_kqyk0y.png',
                 'DC': 'https://res.cloudinary.com/dykvdhxke/image/upload/v1742618962/Original_Delhi_Capitals_Logo_PNG-SVG_File_Download_Free_Download_zwrnxu.png',
@@ -675,7 +673,7 @@
 
                     // Extract innings data
                     const firstInnings = data.innings?.[0] || { score: '-', team: '-' };
-                    const secondInnings = data.innings?.[3] || { score: '-', team: '-' };
+                    const secondInnings = data.innings?.[1] || { score: '-', team: '-' };
 
 
                     // Set logos for both teams
@@ -688,7 +686,9 @@
 
 
                     const battingTeamm = data.currentScore?.[1] || { score: '-', team: '-' };
-                    document.getElementById('targetScore').innerText = `Target ${battingTeamm.score} ` || '-';
+                    // Extract only the first number (which is the score)
+                    const extractedScore = battingTeamm.score.match(/\d+/)?.[0] || '-';
+                    document.getElementById('targetScore').innerText = `Target ${extractedScore} ` || '-';
 
 
 
@@ -713,6 +713,7 @@
 
                     // Get the batting team name
                     const battingTeamName = currentBattingTeam.team || '-';
+                    console.log("battingTeamName",battingTeamName);
 
                     // Dynamically update the batting team logo
                     const teamLogoElement = document.getElementById('teamLogo1');
