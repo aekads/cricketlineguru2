@@ -644,7 +644,7 @@
 
             async function fetchData() {
                 try {
-                    const response = await fetch('/api/live-match');
+                    const response = await fetch('api/live-match');
                     if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
 
                     const data = await response.json();
