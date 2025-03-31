@@ -634,7 +634,7 @@
                 'PMD': 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRloofqOzXRqDZgAwCIzxpaqKxV6l54oxl-LQ&s',
                 'DRJU': 'https://marketplace.canva.com/EAFzZqHNCIE/1/0/1600w/canva-red-and-black-illustrative-cricket-club-logo-jqO8d_9OWwA.jpg',
                 'Rajasthan Royals': 'https://res.cloudinary.com/dykvdhxke/image/upload/v1742618962/Original_Rajasthan_Royals_Logo_PNG-SVG_File_Download_Free_Download_tnyvbq.png',
-                'England A Women': 'https://res.cloudinary.com/dykvdhxke/image/upload/v1742618962/Original_Kolkata_Knight_Riders_PNG-SVG_File_Download_Free_Download_btlibn.png',
+                'Kolkata Knight Riders': 'https://res.cloudinary.com/dykvdhxke/image/upload/v1742618962/Original_Kolkata_Knight_Riders_PNG-SVG_File_Download_Free_Download_btlibn.png',
                 'Sunrisers Hyderabad': 'https://res.cloudinary.com/dykvdhxke/image/upload/v1742618963/Original_Sunrisers_Hyderabad_PNG-SVG_File_Download_Free_Download_o79rcq.png',
                 'Chennai Super Kings': 'https://res.cloudinary.com/dykvdhxke/image/upload/v1742618963/Original_Chennai_Super_Fun_Logo_PNG_-_SVG_File_Download_Free_Download_rnuqli.png',
                 'Royal Challengers Bengaluru': 'https://res.cloudinary.com/dykvdhxke/image/upload/v1742618962/Original_Royal_Challengers_Bangalore_PNG-SVG_File_Download_Free_Download_jb3smp.png',
@@ -685,7 +685,7 @@
                     //     document.getElementById('battingTeam').innerText = battingTeam.team || '-';
 
 
-                    const battingTeamm = data.currentScore?.[0] || { score: '-', team: '-' };
+                    const battingTeamm = data.currentScore?.[1] || { score: '-', team: '-' };
                     // Extract only the first number (which is the score)
                     const extractedScore = battingTeamm.score.match(/\d+/)?.[0] || '-';
                     document.getElementById('targetScore').innerText = `Target ${extractedScore} ` || '-';
@@ -707,7 +707,7 @@
                     // const team = data.currentScore?.[0] || { score: '-', team: '-' };
                     // const team = data.currentScore?.[1] || { score: '-', team: '-' };
                     // Determine the currently batting team
-                    const currentBattingIndex = data.currentScore === 1 ? 1: 1;// 1 means second innings, otherwise first
+                    const currentBattingIndex = data.currentScore === 0 ? 0: 0;// 1 means second innings, otherwise first
                     const currentBattingTeam = data.currentScore?.[currentBattingIndex] || { score: '-', team: '-' };
                     console.log("battingTeamName",currentBattingTeam);
 
