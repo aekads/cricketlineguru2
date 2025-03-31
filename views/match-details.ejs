@@ -672,8 +672,8 @@
 
 
                     // Extract innings data
-                    const firstInnings = data.innings?.[0] || { score: '-', team: '-' };
-                    const secondInnings = data.innings?.[0] || { score: '-', team: '-' };
+                    const firstInnings = data.innings?.[1] || { score: '-', team: '-' };
+                    const secondInnings = data.innings?.[1] || { score: '-', team: '-' };
 
 
                     // Set logos for both teams
@@ -685,7 +685,7 @@
                     //     document.getElementById('battingTeam').innerText = battingTeam.team || '-';
 
 
-                    const battingTeamm = data.currentScore?.[0] || { score: '-', team: '-' };
+                    const battingTeamm = data.currentScore?.[1] || { score: '-', team: '-' };
                     // Extract only the first number (which is the score)
                     const extractedScore = battingTeamm.score.match(/\d+/)?.[0] || '-';
                     document.getElementById('targetScore').innerText = `Target ${extractedScore} ` || '-';
