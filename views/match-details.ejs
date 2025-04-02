@@ -685,7 +685,7 @@
                     //     document.getElementById('battingTeam').innerText = battingTeam.team || '-';
 
 
-                    const battingTeamm = data.currentScore?.[1] || { score: '-', team: '-' };
+                    const battingTeamm = data.currentScore?.[0] || { score: '-', team: '-' };
                     // Extract only the first number (which is the score)
                     const extractedScore = battingTeamm.score.match(/\d+/)?.[0] || '-';
                     document.getElementById('targetScore').innerText = `Target ${extractedScore} ` || '-';
