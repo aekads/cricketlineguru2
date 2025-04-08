@@ -539,7 +539,7 @@
             </svg>
 
             <div class="qr-code">
-                <img src="https://res.cloudinary.com/dykvdhxke/image/upload/v1742982820/WhatsApp_Image_2025-03-26_at_3.17.16_PM_omkn5p.jpg" alt="QR Code"
+                <img src="https://res.cloudinary.com/dykvdhxke/image/upload/v1744088845/Aek_Sports_Apk_eabwzz.png" alt="QR Code"
                     width="100">
             </div>
             <p class="adver">Scan the QR code to download AekSports now & get live cricket scores! 📲🏏🔥</p>
@@ -685,7 +685,7 @@
                     //     document.getElementById('battingTeam').innerText = battingTeam.team || '-';
 
 
-                    const battingTeamm = data.currentScore?.[0] || { score: '-', team: '-' };
+                    const battingTeamm = data.currentScore?.[1] || { score: '-', team: '-' };
                     // Extract only the first number (which is the score)
                     const extractedScore = battingTeamm.score.match(/\d+/)?.[0] || '-';
                     document.getElementById('targetScore').innerText = `Target ${extractedScore} ` || '-';
@@ -707,7 +707,7 @@
                     // const team = data.currentScore?.[0] || { score: '-', team: '-' };
                     // const team = data.currentScore?.[1] || { score: '-', team: '-' };
                     // Determine the currently batting team
-                    const currentBattingIndex = data.currentScore === 1 ? 1: 1;// 1 means second innings, otherwise first
+                    const currentBattingIndex = data.currentScore === 0 ? 0: 0;// 1 means second innings, otherwise first
                     const currentBattingTeam = data.currentScore?.[currentBattingIndex] || { score: '-', team: '-' };
                     console.log("battingTeamName",currentBattingTeam);
 
